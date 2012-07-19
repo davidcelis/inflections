@@ -39,7 +39,7 @@ Define your own defaults as such:
 ```ruby
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.singular /(phase)s$/i, '\1' 
-  inflect.plural /(she|kni)fe/, '\1ves'
+  inflect.plural /(shel|kni)fe/, '\1ves'
   inflect.irregular 'foot', 'feet'
   inflect.uncountable %w( money )
 end
