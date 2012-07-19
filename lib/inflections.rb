@@ -1,8 +1,5 @@
 require 'active_support/inflector'
 
-module Inflections
-end
-
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.clear
 
