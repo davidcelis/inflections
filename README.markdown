@@ -22,12 +22,27 @@ $ bundle
 
 ## Usage
 
+### Ruby on Rails
+
 If you're using Rails, you're done. The default inflections defined in ActiveSupport will be overwritten, and you can continue to define your own special cases in `config/intializers/inflections.rb`.
 
-Otherwise, wherever you need 'em:
+### Otherwise
+
+Wherever you need 'em:
 
 ```ruby
 require 'inflections'
+```
+
+Define your own defaults as such:
+
+```ruby
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.singular /(phase)s$/i, '\1' 
+  inflect.plural /(she|kni)fe/, '\1ves'
+  inflect.irregular 'foot', 'feet'
+  inflect.uncountable %w( money )
+end
 ```
 
 ## Contributing
