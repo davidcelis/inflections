@@ -10,7 +10,7 @@ ActiveSupport::Inflector.inflections do |inflect|
 
   inflect.singular(/s$/i, '')
   inflect.singular(/(ss)$/i, '\1')
-  inflect.singular(/([sxz]|[cs]h)es/, '\1')
+  inflect.singular(/([sxz]|[cs]h)es$/, '\1')
   inflect.singular(/([^aeiouy]o)es$/, '\1')
   inflect.singular(/([^aeiouy])ies$/i, '\1y')
 
