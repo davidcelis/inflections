@@ -9,12 +9,12 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'https://github.com/davidcelis/inflections'
 
   gem.files         = `git ls-files`.split($\)
-  gem.test_files    = ['inflections_test.rb']
+  gem.test_files    = `git ls-files -- *_test.rb`.split($\)
   gem.name          = 'inflections'
   gem.require_paths = ['lib']
   gem.version       = Inflections::VERSION
 
-  gem.add_development_dependency 'bundler'
+  gem.add_development_dependency 'rake'
   gem.add_development_dependency 'minitest'
 
   gem.add_dependency 'activesupport', '>= 2.2.1'

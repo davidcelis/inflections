@@ -1,5 +1,6 @@
-require 'inflections'
+require 'bundler/setup'
 require 'minitest/autorun'
+require 'inflections'
 
 class TestInflections < MiniTest::Unit::TestCase
   def test_regular_plurals
