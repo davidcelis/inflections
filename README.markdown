@@ -1,4 +1,4 @@
-# Inflections
+# Inflections [![Build Status](https://secure.travis-ci.org/davidcelis/inflections.png)](http://travis-ci.org/davidcelis/inflections)
 
 This gem is to remove the cruft from ActiveSupport's inflections and provide a more sane set of defaults for Ruby/Rails applications. 
 
