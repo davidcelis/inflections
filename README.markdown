@@ -45,11 +45,15 @@ ActiveSupport::Inflector.inflections do |inflect|
 end
 ```
 
-## Contributing
+## Languages Currently Supported
+
+* English
 
 If you are fluent in a language not yet included in this gem, _please_ consider creating a list of inflections and submitting a pull request. I would love to support more than just English.
 
-Please note that pull requests will only be accepted for rules that are in error or a potentially missed rule. If your change is an exception to an existing rule, that exception must occur _frequently_ and must involve words used more frequently than the regular plurals. If your change is an irregularity, it must be a word that is arguably _frequently_ encountered in applications that would use ActiveSupport. The default list of inflections is meant to be short.
+## Contributing
+
+Please note that pull requests for already supported languages will only be accepted for rules that are in error or a potentially missed rule. If your change is an exception to an existing rule, that exception must occur _frequently_ and must involve words used more frequently than the regular plurals. If your change is an irregularity, it must be a word that is arguably _frequently_ encountered in applications that would use ActiveSupport. The default list of inflections is meant to be short.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
