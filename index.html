@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Inflections by davidcelis</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Inflections</h1>
+        <p>Sane singularization/pluralization rules for ActiveSupport and Rails.</p>
+        <p class="view"><a href="https://github.com/davidcelis/inflections">View the Project on GitHub <small>davidcelis/inflections</small></a></p>
+        <ul>
+          <li><a href="https://github.com/davidcelis/inflections/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/davidcelis/inflections/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/davidcelis/inflections">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>Ah, the Rails Inflector; we all know and love it. This little part of ActiveSupport has a lot of responsibility in our Rails applications, after all. It affects table names, class names, our resourceful routes, foreign keys... It's a great part of ActiveSupport. Not only does much of Rails depend on the Inflector, but it provides useful mechanisms for string manipulation to users.</p>
+
+<p>But how does the Inflector actually handle singularization and pluralization? English is not a regular language. There are a lot of grammatical rules to consider when converting between the two, so what does the Inflector consider? There must be some magic involved, right? According to the documentation, Rails defines these inflections directly in ActiveSupport... <code>lib/active_support/inflections.rb</code> to be exact. Let's take a looksy, shall we?</p>
+
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'active_support/inflector/inflections'</span>
+
+<span class="k">module</span> <span class="nn">ActiveSupport</span>
+  <span class="no">Inflector</span><span class="o">.</span><span class="n">inflections</span> <span class="k">do</span> <span class="o">|</span><span class="n">inflect</span><span class="o">|</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/$/</span><span class="p">,</span> <span class="s1">'s'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/s$/i</span><span class="p">,</span> <span class="s1">'s'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/^(ax|test)is$/i</span><span class="p">,</span> <span class="s1">'\1es'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/(octop|vir)us$/i</span><span class="p">,</span> <span class="s1">'\1i'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/(octop|vir)i$/i</span><span class="p">,</span> <span class="s1">'\1i'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/(alias|status)$/i</span><span class="p">,</span> <span class="s1">'\1es'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/(bu)s$/i</span><span class="p">,</span> <span class="s1">'\1ses'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/(buffal|tomat)o$/i</span><span class="p">,</span> <span class="s1">'\1oes'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/([ti])um$/i</span><span class="p">,</span> <span class="s1">'\1a'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/([ti])a$/i</span><span class="p">,</span> <span class="s1">'\1a'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/sis$/i</span><span class="p">,</span> <span class="s1">'ses'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/(?:([^f])fe|([lr])f)$/i</span><span class="p">,</span> <span class="s1">'\1\2ves'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/(hive)$/i</span><span class="p">,</span> <span class="s1">'\1s'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/([^aeiouy]|qu)y$/i</span><span class="p">,</span> <span class="s1">'\1ies'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/(x|ch|ss|sh)$/i</span><span class="p">,</span> <span class="s1">'\1es'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/(matr|vert|ind)(?:ix|ex)$/i</span><span class="p">,</span> <span class="s1">'\1ices'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/^(m|l)ouse$/i</span><span class="p">,</span> <span class="s1">'\1ice'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/^(m|l)ice$/i</span><span class="p">,</span> <span class="s1">'\1ice'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/^(ox)$/i</span><span class="p">,</span> <span class="s1">'\1en'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/^(oxen)$/i</span><span class="p">,</span> <span class="s1">'\1'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">plural</span><span class="p">(</span><span class="sr">/(quiz)$/i</span><span class="p">,</span> <span class="s1">'\1zes'</span><span class="p">)</span>
+
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/s$/i</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(ss)$/i</span><span class="p">,</span> <span class="s1">'\1'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(n)ews$/i</span><span class="p">,</span> <span class="s1">'\1ews'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/([ti])a$/i</span><span class="p">,</span> <span class="s1">'\1um'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/((a)naly|(b)a|(d)iagno|(p)arenthe|(p)rogno|(s)ynop|(t)he)(sis|ses)$/i</span><span class="p">,</span> <span class="s1">'\1sis'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(^analy)(sis|ses)$/i</span><span class="p">,</span> <span class="s1">'\1sis'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/([^f])ves$/i</span><span class="p">,</span> <span class="s1">'\1fe'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(hive)s$/i</span><span class="p">,</span> <span class="s1">'\1'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(tive)s$/i</span><span class="p">,</span> <span class="s1">'\1'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/([lr])ves$/i</span><span class="p">,</span> <span class="s1">'\1f'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/([^aeiouy]|qu)ies$/i</span><span class="p">,</span> <span class="s1">'\1y'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(s)eries$/i</span><span class="p">,</span> <span class="s1">'\1eries'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(m)ovies$/i</span><span class="p">,</span> <span class="s1">'\1ovie'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(x|ch|ss|sh)es$/i</span><span class="p">,</span> <span class="s1">'\1'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/^(m|l)ice$/i</span><span class="p">,</span> <span class="s1">'\1ouse'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(bus)(es)?$/i</span><span class="p">,</span> <span class="s1">'\1'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(o)es$/i</span><span class="p">,</span> <span class="s1">'\1'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(shoe)s$/i</span><span class="p">,</span> <span class="s1">'\1'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(cris|test)(is|es)$/i</span><span class="p">,</span> <span class="s1">'\1is'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/^(a)x[ie]s$/i</span><span class="p">,</span> <span class="s1">'\1xis'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(octop|vir)(us|i)$/i</span><span class="p">,</span> <span class="s1">'\1us'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(alias|status)(es)?$/i</span><span class="p">,</span> <span class="s1">'\1'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/^(ox)en/i</span><span class="p">,</span> <span class="s1">'\1'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(vert|ind)ices$/i</span><span class="p">,</span> <span class="s1">'\1ex'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(matr)ices$/i</span><span class="p">,</span> <span class="s1">'\1ix'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(quiz)zes$/i</span><span class="p">,</span> <span class="s1">'\1'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="sr">/(database)s$/i</span><span class="p">,</span> <span class="s1">'\1'</span><span class="p">)</span>
+
+    <span class="n">inflect</span><span class="o">.</span><span class="n">irregular</span><span class="p">(</span><span class="s1">'person'</span><span class="p">,</span> <span class="s1">'people'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">irregular</span><span class="p">(</span><span class="s1">'man'</span><span class="p">,</span> <span class="s1">'men'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">irregular</span><span class="p">(</span><span class="s1">'child'</span><span class="p">,</span> <span class="s1">'children'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">irregular</span><span class="p">(</span><span class="s1">'sex'</span><span class="p">,</span> <span class="s1">'sexes'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">irregular</span><span class="p">(</span><span class="s1">'move'</span><span class="p">,</span> <span class="s1">'moves'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">irregular</span><span class="p">(</span><span class="s1">'cow'</span><span class="p">,</span> <span class="s1">'kine'</span><span class="p">)</span>
+    <span class="n">inflect</span><span class="o">.</span><span class="n">irregular</span><span class="p">(</span><span class="s1">'zombie'</span><span class="p">,</span> <span class="s1">'zombies'</span><span class="p">)</span>
+
+    <span class="n">inflect</span><span class="o">.</span><span class="n">uncountable</span><span class="p">(</span><span class="sx">%w(equipment information rice money species series fish sheep jeans police)</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>This is a snapshot of Rails' inflections in the master branch (4.0.0.beta) at the time of writing this post and... Well... Yikes. This brings me to what I really want to discuss: the state of Rails' Singularization and Pluralization rules. I think it's a mess.</p>
+
+<h2>Pluralization in English is not regular</h2>
+
+<p>There are only a few basic rules in English for pluralization. Because we're speaking in terms of text, I'll try to keep these rules based on characters rather than sounds. However, one important rule does depend on "<a href="http://en.wikipedia.org/wiki/Sibilant">sibilant</a>" sounds, which are defined as a sound made by directing air through the sharp edge of your teeth and your tongue (i.e. 'sh', 'ss', 'dge', etc.). While prevalent, this can be difficult to detect in text and there are definitely edge cases.</p>
+
+<h3>The rules</h3>
+
+<ul>
+<li><p>If the word ends with a "sibilant" sound, the plural form ends with 'es' (dish =&gt; dishes, ) or 's' if the word already ends with an 'e' (such as fridge =&gt; fridges or judge =&gt; judges)</p></li>
+<li><p>Most words that end with an 'o' preceded by a consonant pluralize as 'oes' (potato =&gt; potatoes, avocado =&gt; avocadoes).</p></li>
+<li><p>Most words that end with a 'y' preceded by a consonant pluralize as 'ies' (lady =&gt; ladies, berry =&gt; berries)</p></li>
+</ul><p>Aside from these rules, however, all other regular plurals are achieved by adding an 's'. </p>
+
+<h3>Some exceptions</h3>
+
+<ul>
+<li>Words of foreign origin are exempt from the 'oes' rule (piano =&gt; pianos, zero =&gt; zeros, kimono =&gt; kimonos).</li>
+<li>Proper nouns that end with a y are exempt from the 'ies' rule (Germany =&gt; Germanys, Cody =&gt; Codys).</li>
+</ul><p>These are just two sets of exceptions, however, and these are moreso rules that are exceptions to other rules. English pluralization is riddled with other exceptions that are inconsistent:</p>
+
+<ul>
+<li>Some words that end in an 'f' have that 'f' mutated to a 'v' during pluralization (calf =&gt; calves, shelf =&gt; shelves, leaf =&gt; leaves) due in part to the evolution of old/middle English to standard English.</li>
+<li>Some words with double 'o's replace those 'o's with 'e's (goose =&gt; geese, foot =&gt; feet).</li>
+<li>Many words are both singular and plural (buffalo, money, sheep, series, fish, coffee) and are therefore uncountable.</li>
+<li>Some words can even be pluralized <em>multiple ways</em> depending on context (indices/indexes, staffs/staves)! That's a case that the Rails Inflector can never hope to get right.</li>
+<li>And, of course, some words are just plain irregular (child =&gt; children, man =&gt; men, mouse =&gt; mice, datum =&gt; data, etc.).</li>
+</ul><p>How can Rails hope to consider all of these exceptions when English is such an irregular and fluid language? How should Rails handle the edge cases and irregularities? The answer is simple: it shouldn't.</p>
+
+<h2>The inflector should be based on rules, not exceptions</h2>
+
+<p>The current inflections that Rails defines are riddled with both rules and exceptions. The file has become such a mess, and so many people were submitting pull requests (<a href="https://github.com/rails/rails/pull/7086">#7086</a>, <a href="https://github.com/rails/rails/pull/345">#345</a>, <a href="https://github.com/rails/rails/pull/3930">#3930</a>, <a href="https://github.com/rails/rails/pull/3910">#3910</a>, <a href="https://github.com/rails/rails/pull/6820">#6820</a>, <a href="https://github.com/rails/rails/pull/2457">#2457</a>, and the list goes on and on and on...) to either fix inflections or add new ones, that inflections in Rails are now frozen. From the documentation for <code>ActiveSupport::Inflector</code>:</p>
+
+<blockquote>
+<p>The Rails core team has stated patches for the inflections library will not be accepted in order to avoid breaking legacy applications which may be relying on errant inflections. If you discover an incorrect inflection and require it for your application, you'll need to correct it yourself.</p>
+</blockquote>
+
+<p>I believe that the Rails core team members have shot themselves in the feet with this one. Don't get me wrong, many of these pull requests <em>should</em> be closed. A common response to these patches is "Rails cannot possibly include all inflections by default." Awesome. I totally agree. But this is hypocritical, considering Rails has already defined many inflections that are exceptions or irregularities, such as ox =&gt; oxen, crisis =&gt; crises, and the aforementioned case of index =&gt; indices (even though this pluralization is purely contextual). Many of the "rules" defined in Rails' inflections are really exceptions. Some of these exceptions are narrow and affect only one or two words. Some of the exceptions admittedly make sense, but should instead be defined as irregularities rather than singular/plural inflections. I'll gloss over why some of the current inflections <em>don't</em> make sense:</p>
+
+<ul>
+<li>
+<code>axis/testis &lt;=&gt; axes/testes</code>: special rules that should be defined as irregularities</li>
+<li>
+<code>octopus/virus &lt;=&gt; octopi/viri</code>: special rules which are actually disputed, as octopuses and viruses are more used and accepted</li>
+<li>
+<code>octopi/viri =&gt; octopi/viri</code>: these words are not singular, so pluralization should not even be attempted.</li>
+<li>
+<code>alias/status &lt;=&gt; aliases/statuses</code>: special rules even though this follows a regular pluralization rule</li>
+<li>
+<code>buffalo/tomato =&gt; buffaloes/tomatoes</code>: special rules even though these are also regular plurals</li>
+<li>
+<code>*hive &lt;=&gt; *hives</code>: a special rule even though this is a regular plural</li>
+<li>
+<code>matrix/vertex/index &lt;=&gt; matrices/vertices/indices</code>: while this makes sense, indices/indexes are both accepted depending on context. Matrices/Vertices are probably not used enough in Rails applications to warrant a provided rule.</li>
+<li>
+<code>mouse/louse &lt;=&gt; mice/lice</code>: words that will never see the light of day in Rails applications.</li>
+<li>
+<code>news &lt;=&gt; news</code>: A special rule that could have been an <code>uncountable</code>. The frequency of the word "news" in Rails applications is also debatable.</li>
+<li>
+<code>ox &lt;=&gt; oxen</code>: A special rule that should be an irregularity, but will also likely never be used in Rails applications</li>
+<li>
+<code>oxen =&gt; oxen</code>: A special rule even though oxen is not singular</li>
+<li>
+<code>quiz &lt;=&gt; quizzes</code>: A special rule that should be defined as an irregularity, though I feel similarly towards this irregularity as I do matrices/vertices.</li>
+</ul><p>Clearly, something is amiss here. Rails core team members say that Rails can not include all inflections and that exceptions should be defined by the user in the inflections initializer generated with every new Rails application. I agree, but that's not the practice I'm seeing here. Rails' inflections are riddled with poorly defined singularization and pluralization rules that are not even rules in the first place.</p>
+
+<p>Some of the inflections I referred to above are defined as special cases even though they follow a regular pluralization rule. Many shouldn't be defined in the first place, even as irregularities instead of singularization/pluralization rules. When was the last time you saw an application using buffalo, tomato, mouse, louse, ox, or octopus as a model? The "Zombie" rule was only added because a website devoted to Rails tutorials, <a href="http://railsforzombies.org/">Rails for Zombies</a>, noticed that <a href="https://github.com/rails/rails/pull/2457">generators were singularizing "zombies" as "zomby"</a> due to "zombies" being irregular. Perhaps a better idea would have been to take that as an opportunity to provide a quick lesson on inflections to new Rails users.</p>
+
+<p>Oh, and don't even get me started on the ridiculously added, archaic plural form of "cow": <code>inflect.irregular('cow', 'kine')</code></p>
+
+<p>Of course, there are some exceptions and irregularities that make sense to define. To name a few, "child" is a frequently-used term in programming and computer science, "person" is a somewhat frequently-used model name in Rails applications, and "half" or "life" are also used frequently in programming depending on the area. I won't argue that they should be defined within the framework as irregularities.</p>
+
+<h2>Rails 4.0 is coming - it's time to .unfreeze inflections</h2>
+
+<p>With Rails 4.0 on its way, isn't now a good time to clean up the inflections? Isn't a major release the perfect time to eschew the worry of breaking existing applications for the betterment of the framework? Rails is a huge piece of software; any upgrades should be done with caution. Users should be expected to read the CHANGELOG when upgrading even from minor versions, and they should read the upgrade guides that Rails provides with each minor version bump. Inflections do not need to be backwards compatible. We should fix the inflections that are clearly exceptions and not rules, note it in the CHANGELOG and upgrade guides, and move on with our lives. Developers who blindly upgrade their Rails versions are asking for hurt, and freezing an area of the framework that needs improvement is the wrong approach.</p>
+
+<h2>Until then, a better set of defaults:</h2>
+
+<p>Until Rails core decides its time to clean up inflections, I've provided a more sane set of singularization and pluralization rules in the form of a gem:</p>
+
+<p><a href="https://github.com/davidcelis/inflections">https://github.com/davidcelis/inflections</a></p>
+
+<p>Here's the difference:</p>
+
+<pre><code>4 pluralization   rules (down from 21)
+5 singularization rules (down from 27)
+3 irregularities        (down from  7)
+1 uncountable           (down from 10)
+</code></pre>
+
+<p>Ahhh. Much better.</p>
+
+<h2>Supported languages</h2>
+
+<ul>
+<li>English (en)</li>
+<li>Spanish (es)</li>
+</ul><p>Well, that's a short list. If you're fluent in another language, please consider <a href="https://github.com/davidcelis/inflections/fork_select">forking Inflections</a>, making a list of inflections (<code>lib/inflections/&lt;language&gt;.rb</code>) with tests (<code>test/&lt;language&gt;.rb</code>) and <a href="https://github.com/davidcelis/inflections/pull/new/master">opening a pull request</a>.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/davidcelis">davidcelis</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>
