@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'https://github.com/davidcelis/inflections'
 
   gem.files         = `git ls-files`.split($\)
-  gem.test_files    = `git ls-files -- *_test.rb`.split($\)
+  gem.test_files    = Dir.glob('test/*_test.rb')
   gem.name          = 'inflections'
   gem.require_paths = ['lib']
   gem.version       = Inflections::VERSION

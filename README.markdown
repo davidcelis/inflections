@@ -8,10 +8,10 @@ Many of the special cases that ActiveSupport defines will not see the light of d
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add the following to your application's Gemfile:
 
 ```ruby
-gem 'inflections'
+gem 'inflections', :require => 'inflections/en' # Or replace 'en' with your language's i18n abbreviation
 ```
 
 And then execute:
@@ -47,7 +47,7 @@ end
 
 ## Languages Currently Supported
 
-* English
+* English (en)
 
 If you are fluent in a language not yet included in this gem, _please_ consider creating a list of inflections and submitting a pull request. I would love to support more than just English.
 
