@@ -11,7 +11,6 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($\)
   gem.test_files    = Dir.glob('test/*_test.rb')
   gem.name          = 'inflections'
-  gem.require_paths = ['lib']
   gem.version       = Inflections::VERSION
 
   gem.add_development_dependency 'rake'

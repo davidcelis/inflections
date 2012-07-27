@@ -11,7 +11,7 @@ Many of the special cases that ActiveSupport defines will not see the light of d
 Add the following to your application's Gemfile:
 
 ```ruby
-gem 'inflections', :require => 'inflections/en' # Or replace 'en' with your language's i18n abbreviation
+gem 'inflections', :require => 'inflections/en' # Or replace 'en' with your language's I18n abbreviation
 ```
 
 And then execute:
@@ -31,7 +31,7 @@ If you're using Rails, you're done. The default inflections defined in ActiveSup
 Wherever you need 'em:
 
 ```ruby
-require 'inflections'
+require 'inflections/en'
 ```
 
 Define your own defaults as such:
@@ -48,8 +48,9 @@ end
 ## Languages Currently Supported
 
 * English (en)
+* Spanish (es)
 
-If you are fluent in a language not yet included in this gem, _please_ consider creating a list of inflections and submitting a pull request. I would love to support more than just English.
+If you are fluent in a language not yet included in this gem, _please_ consider creating a list of inflections and submitting a pull request.
 
 ## Contributing
 
