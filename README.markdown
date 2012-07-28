@@ -1,8 +1,8 @@
 # Inflections [![Build Status](https://secure.travis-ci.org/davidcelis/inflections.png)](http://travis-ci.org/davidcelis/inflections)
 
-This gem is to remove the cruft from ActiveSupport's inflections and provide a more sane set of defaults for Ruby/Rails applications. 
+This gem's purpose is twofold: to remove the cruft from ActiveSupport's inflections and provide a more sane set of defaults for Ruby/Rails applications in English while also providing default rules for other languages.
 
-At the time of this gem's publication, the list of inflections in ActiveSupport is a mess. It is riddled with special cases such as a special pluralization rule for "octopus" and "virus", even though they follow a regular rule (as octopi and viri are disputed terms). Similar pluralization rules exist for "ox", "quiz", "mouse", "louse", etc.
+At the time of this gem's publication, the English list of inflections in ActiveSupport is a mess. It is riddled with special cases such as a special pluralization rule for "octopus" and "virus", even though they follow a regular rule (as octopi and viri are disputed terms). Similar pluralization rules exist for "ox", "quiz", "mouse", "louse", etc.
 
 Many of the special cases that ActiveSupport defines will not see the light of day in an application. Other rules exist that are actually gramatical exceptions, such as changing "f" to a "v" when encountered at the end of the word (which then requires even more rules to fix special words such as "drive", "safe", "hive", etc.). And, of course, who can forget the special pluralization of "cow" to the archaic term of Scottish origin, "kine" (the plural of "kye")?
 
