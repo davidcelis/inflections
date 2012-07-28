@@ -11,7 +11,7 @@ Many of the special cases that ActiveSupport defines will not see the light of d
 Add the following to your application's Gemfile:
 
 ```ruby
-gem 'inflections', :require => 'inflections/en' # Or replace 'en' with your language's I18n abbreviation
+gem 'inflections'
 ```
 
 And then execute:
@@ -24,14 +24,14 @@ $ bundle
 
 ### Ruby on Rails
 
-If you're using Rails, you're done. The default inflections defined in ActiveSupport will be overwritten, and you can continue to define your own special cases in `config/intializers/inflections.rb`.
+If you're using Rails, you're done. The default inflections defined in ActiveSupport will be overwritten, and you can continue to define your own special cases in `config/intializers/inflections.rb`. I18n's default locale (set in `config/application.rb` will determine which inflections are loaded)
 
 ### Otherwise
 
 Wherever you need 'em:
 
 ```ruby
-require 'inflections/en'
+require 'inflections/en' # Replace 'en' with your preferred locale.
 ```
 
 Define your own defaults as such:

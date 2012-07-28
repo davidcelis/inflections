@@ -1,5 +1,9 @@
-0.0.4 (current version)
+0.0.5 (current version)
 =======================
+* Rails users no longer need to specify a locale to load; inflections are automagically loaded depending on `I18n.default_locale`
+
+0.0.4
+=====
 * Support for Spanish (es)
 
 0.0.3
