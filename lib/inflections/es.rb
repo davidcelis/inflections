@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 module Inflections
-  ActiveSupport::Inflector.inflections do |inflect|
+  ActiveSupport::Inflector.inflections(:es) do |inflect|
     inflect.clear
     
     inflect.plural(/$/, 's')

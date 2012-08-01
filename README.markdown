@@ -24,7 +24,7 @@ $ bundle
 
 ### Ruby on Rails
 
-If you're using Rails, you're done. The default inflections defined in ActiveSupport will be overwritten, and you can continue to define your own special cases in `config/intializers/inflections.rb`. I18n's default locale (set in `config/application.rb` will determine which inflections are loaded)
+If you're using Rails, you're done. The default inflections defined in ActiveSupport will be overwritten, and you can continue to define your own special cases in `config/intializers/inflections.rb`. I18n's default locale (set in `config/application.rb`) will determine which inflections are loaded.
 
 ### Otherwise
 
@@ -44,6 +44,10 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.uncountable %w( money )
 end
 ```
+
+### Edge
+
+If you're using the edge version of ActiveSupport (4.0.0.beta), the multilingual Inflector will be supported. You can use each set of inflection rules without needing to require them or worry about conflicts between languages. Just point your Gemfile to this git repository; each locale's set of inflection rules will be kept separately and you can use any of them side-by-side. [Read more about the multilingual Inflector](http://davidcelis.com/blog/2012/07/31/edge-rails-a-multilingual-inflector/).
 
 ## Languages Currently Supported
 

@@ -1,1 +1,2 @@
-require 'inflections/railtie' if defined?(Rails)
+require 'inflections/en'
+require 'inflections/es'
