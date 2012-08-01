@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
 
 # Specify your gem's dependencies in inflections.gemspec
-gemspec
+gem 'activesupport', :git => 'git://github.com/rails/rails.git' do
+  gem 'activesupport'
+end
