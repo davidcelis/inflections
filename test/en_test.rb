@@ -3,72 +3,72 @@ require 'inflections/en'
 
 class TestEnglishInflections < MiniTest::Unit::TestCase
   def test_regular_plurals
-    assert_equal 'dogs', 'dog'.pluralize
-    assert_equal 'dog', 'dogs'.singularize
+    assert_equal 'dogs', 'dog'.pluralize(:en)
+    assert_equal 'dog', 'dogs'.singularize(:en)
 
-    assert_equal 'days', 'day'.pluralize
-    assert_equal 'day', 'days'.singularize
+    assert_equal 'days', 'day'.pluralize(:en)
+    assert_equal 'day', 'days'.singularize(:en)
 
-    assert_equal 'tests', 'test'.pluralize
-    assert_equal 'test', 'tests'.singularize
+    assert_equal 'tests', 'test'.pluralize(:en)
+    assert_equal 'test', 'tests'.singularize(:en)
   end
 
   def test_sibilant_sounds
-    assert_equal 'addresses', 'address'.pluralize
-    assert_equal 'address', 'addresses'.singularize
+    assert_equal 'addresses', 'address'.pluralize(:en)
+    assert_equal 'address', 'addresses'.singularize(:en)
 
-    assert_equal 'phases', 'phase'.pluralize
+    assert_equal 'phases', 'phase'.pluralize(:en)
     # Can't assume whether words that end with 'es' remove the 'es' or just 's'
     # So I went with the case that seemed more reasonable given sibilant sounds
     #
-    # assert_equal 'phase', 'phases'.singularize
+    # assert_equal 'phase', 'phases'.singularize(:en)
 
-    assert_equal 'buzzes', 'buzz'.pluralize
-    assert_equal 'buzz', 'buzzes'.singularize
+    assert_equal 'buzzes', 'buzz'.pluralize(:en)
+    assert_equal 'buzz', 'buzzes'.singularize(:en)
 
-    assert_equal 'boxes', 'box'.pluralize
-    assert_equal 'box', 'boxes'.singularize
+    assert_equal 'boxes', 'box'.pluralize(:en)
+    assert_equal 'box', 'boxes'.singularize(:en)
 
-    assert_equal 'benches', 'bench'.pluralize
-    assert_equal 'bench', 'benches'.singularize
+    assert_equal 'benches', 'bench'.pluralize(:en)
+    assert_equal 'bench', 'benches'.singularize(:en)
 
-    assert_equal 'dishes', 'dish'.pluralize
-    assert_equal 'dish', 'dishes'.singularize
+    assert_equal 'dishes', 'dish'.pluralize(:en)
+    assert_equal 'dish', 'dishes'.singularize(:en)
   end
 
   def test_oes_rule
-    assert_equal 'heroes', 'hero'.pluralize
-    assert_equal 'hero', 'heroes'.singularize
+    assert_equal 'heroes', 'hero'.pluralize(:en)
+    assert_equal 'hero', 'heroes'.singularize(:en)
 
-    assert_equal 'igloos', 'igloo'.pluralize
-    assert_equal 'igloo', 'igloos'.singularize
+    assert_equal 'igloos', 'igloo'.pluralize(:en)
+    assert_equal 'igloo', 'igloos'.singularize(:en)
   end
 
   def test_ies_rule
-    assert_equal 'berries', 'berry'.pluralize
-    assert_equal 'berry', 'berries'.singularize
+    assert_equal 'berries', 'berry'.pluralize(:en)
+    assert_equal 'berry', 'berries'.singularize(:en)
 
-    assert_equal 'days', 'day'.pluralize
-    assert_equal 'day', 'days'.singularize
+    assert_equal 'days', 'day'.pluralize(:en)
+    assert_equal 'day', 'days'.singularize(:en)
   end
 
   def test_irregulars
-    assert_equal 'children', 'child'.pluralize
-    assert_equal 'child', 'children'.singularize
+    assert_equal 'children', 'child'.pluralize(:en)
+    assert_equal 'child', 'children'.singularize(:en)
 
-    assert_equal 'people', 'person'.pluralize
-    assert_equal 'person', 'people'.singularize
+    assert_equal 'people', 'person'.pluralize(:en)
+    assert_equal 'person', 'people'.singularize(:en)
 
-    assert_equal 'selves', 'self'.pluralize
-    assert_equal 'self', 'selves'.singularize
+    assert_equal 'selves', 'self'.pluralize(:en)
+    assert_equal 'self', 'selves'.singularize(:en)
   end
 
   def test_uncountables
-    assert_equal 'series', 'series'.pluralize
-    assert_equal 'series', 'series'.singularize
+    assert_equal 'series', 'series'.pluralize(:en)
+    assert_equal 'series', 'series'.singularize(:en)
   end
 
   def test_stupid_inflections_removed
-    assert_equal 'cows', 'cow'.pluralize
+    assert_equal 'cows', 'cow'.pluralize(:en)
   end
 end
