@@ -48,6 +48,7 @@ end
 ## Languages Currently Supported
 
 * English (en)
+* British English (en-GB)
 * Spanish (es)
 
 If you are fluent in a language not yet included in this gem, _please_ consider creating a list of inflections and submitting a pull request.
