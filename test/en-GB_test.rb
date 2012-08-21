@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'inflections/en-uk'
+require 'inflections/en-gb'
 
 class TestBritishEnglishInflections < MiniTest::Unit::TestCase
   def test_regular_plurals
