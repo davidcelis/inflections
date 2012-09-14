@@ -3,7 +3,7 @@
 module Inflections
   ActiveSupport::Inflector.inflections(:es) do |inflect|
     inflect.clear
-    
+
     inflect.plural(/$/, 's')
     inflect.plural(/([^aeéiou])$/i, '\1es')
     inflect.plural(/([aeiou]s)$/i, '\1')
@@ -16,7 +16,7 @@ module Inflections
 
     inflect.singular(/s$/, '')
     inflect.singular(/es$/, '')
-    
+
     inflect.irregular('el', 'los')
   end
 end

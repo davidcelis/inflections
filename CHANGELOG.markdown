@@ -1,3 +1,8 @@
+3.2.8 (current version)
+=======================
+* Support for British English (thanks to [creativetags](https://github.com/creativetags))
+* Now versioning alongside ActiveSupport
+
 0.0.5 (current version)
 =======================
 * Rails users no longer need to specify a locale to load; inflections are automagically loaded depending on `I18n.default_locale`

@@ -18,10 +18,6 @@ class TestEnglishInflections < MiniTest::Unit::TestCase
     assert_equal 'address', 'addresses'.singularize(:en)
 
     assert_equal 'phases', 'phase'.pluralize(:en)
-    # Can't assume whether words that end with 'es' remove the 'es' or just 's'
-    # So I went with the case that seemed more reasonable given sibilant sounds
-    #
-    # assert_equal 'phase', 'phases'.singularize(:en)
 
     assert_equal 'buzzes', 'buzz'.pluralize(:en)
     assert_equal 'buzz', 'buzzes'.singularize(:en)

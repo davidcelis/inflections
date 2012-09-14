@@ -1,5 +1,5 @@
 module Inflections
-  ActiveSupport::Inflector.inflections(:en) do |inflect|
+  ActiveSupport::Inflector.inflections(:'en-GB') do |inflect|
     inflect.clear
 
     inflect.plural(/$/, 's')
