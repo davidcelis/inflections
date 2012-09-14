@@ -38,7 +38,7 @@ Define your own defaults as such:
 
 ```ruby
 ActiveSupport::Inflector.inflections do |inflect|
-  inflect.singular /(phase)s$/i, '\1' 
+  inflect.singular /(phase)s$/i, '\1'
   inflect.plural /(shel|kni)fe/, '\1ves'
   inflect.irregular 'foot', 'feet'
   inflect.uncountable %w( money )
@@ -48,6 +48,7 @@ end
 ## Languages Currently Supported
 
 * English (en)
+* British English (en-GB)
 * Spanish (es)
 
 If you are fluent in a language not yet included in this gem, _please_ consider creating a list of inflections and submitting a pull request.

@@ -1,10 +1,14 @@
 module Inflections
   class Railtie < Rails::Railtie
     begin
-      require "inflections/#{config.i18n.default_locale}"
+      config.to_prepare do
+        require "inflections/#{Rails.configuration.i18n.default_locale}"
+      end
     rescue LoadError => e
-      warn "Inflections currently does not support your default_locale. Defaulting to English (en)."
-      require 'inflections/en'
+      config.to_prepare do
+        warn "Inflections currently does not support #{Rails.configuration.i18n.default_locale}. Defaulting to English (en)."
+        require 'inflections/en'
+      end
     end
   end
 end
