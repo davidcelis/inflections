@@ -1,8 +1,8 @@
 module Inflections
   MAJOR = 3
   MINOR = 2
-  PATCH = 7
-  PRE   = 20120803
+  PATCH = 8
+  PRE   = nil
 
   VERSION = [MAJOR, MINOR, PATCH, PRE].compact.join '.'
 end
