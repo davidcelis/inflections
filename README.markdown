@@ -34,7 +34,7 @@ Wherever you need 'em:
 require 'inflections/en' # Replace 'en' with your preferred locale.
 ```
 
-Define your own defaults as such:
+Define your own additional rules as such:
 
 ```ruby
 ActiveSupport::Inflector.inflections do |inflect|
