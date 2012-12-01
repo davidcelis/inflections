@@ -1,5 +1,9 @@
-3.2.8 (current version)
+3.2.9 (current version)
 =======================
+* Support for Norwegian Bokmål (thanks to [Henrik Hodne](https://github.com/henrikhodne))
+
+3.2.8
+=====
 * Support for British English (thanks to [creativetags](https://github.com/creativetags))
 * Now versioning alongside ActiveSupport
 
