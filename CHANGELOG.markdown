@@ -1,10 +1,18 @@
-3.2.8 (current version)
-=======================
+3.2.9.20121206 (current version)
+================================
+* Support for Kazakh (thanks to [Galymzhan Kozhayev](https://github.com/galymzhan))
+
+3.2.9
+=====
+* Support for Norwegian Bokmål (thanks to [Henrik Hodne](https://github.com/henrikhodne))
+
+3.2.8
+=====
 * Support for British English (thanks to [creativetags](https://github.com/creativetags))
 * Now versioning alongside ActiveSupport
 
-0.0.5 (current version)
-=======================
+0.0.5
+=====
 * Rails users no longer need to specify a locale to load; inflections are automagically loaded depending on `I18n.default_locale`
 
 0.0.4
