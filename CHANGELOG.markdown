@@ -1,9 +1,14 @@
-3.2.9 (current version)
-=======================
+3.2.9.20121206 (current version)
+================================
+* Support for Kazakh (thanks to [Galymzhan Kozhayev](https://github.com/galymzhan))
+
+3.2.9
+=====
 * Support for Norwegian Bokmål (thanks to [Henrik Hodne](https://github.com/henrikhodne))
 
 3.2.8
 =====
+>>>>>>> 6a241a8... Update docs to reflect Kazakh support
 * Support for British English (thanks to [creativetags](https://github.com/creativetags))
 * Now versioning alongside ActiveSupport
 
