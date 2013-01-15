@@ -1,6 +1,6 @@
 module Inflections
   class Railtie < Rails::Railtie
-    config.to_prepare do
+    initializer 'inflections.require_inflections' do
       begin
         require "inflections/#{Rails.configuration.i18n.default_locale}"
       rescue LoadError => e

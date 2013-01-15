@@ -24,7 +24,11 @@ $ bundle
 
 ### Ruby on Rails
 
-If you're using Rails, you're done. The default inflections defined in ActiveSupport will be overwritten, and you can continue to define your own special cases in `config/intializers/inflections.rb`. I18n's default locale (set in `config/application.rb` will determine which inflections are loaded)
+If you're using Rails, you're done. The default inflections defined in ActiveSupport will be overwritten, and you can continue to define your own special cases in `config/intializers/inflections.rb`. I18n's default locale (set in `config/application.rb`) will determine which inflections are loaded. If you do not wish to use your default locale, you can require a locale manually in your Gemfile:
+
+```ruby
+gem 'inflections', :require => 'inflections/en'
+```
 
 ### Otherwise
 
