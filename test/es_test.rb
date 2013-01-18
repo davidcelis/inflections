@@ -34,6 +34,7 @@ class TestSpanishInflections < MiniTest::Unit::TestCase
   end
 
   def test_palabras_terminadas_en_e
+    assert_equal 'pasaje', 'pasajes'.singularize(:es)
     assert_equal 'fase', 'fases'.singularize(:es)
     assert_equal 'clase', 'clases'.singularize(:es)
     assert_equal 'serie', 'series'.singularize(:es)
