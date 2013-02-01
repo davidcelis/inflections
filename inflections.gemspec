@@ -8,9 +8,6 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Sane inflection rules for ActiveSupport.}
   gem.homepage      = 'https://github.com/davidcelis/inflections'
 
-  gem.signing_key   = File.expand_path('~/.ssh/gem-private_key.pem')
-  gem.cert_chain    = ['.public_cert.pem']
-
   gem.files         = `git ls-files`.split($\)
   gem.test_files    = Dir.glob('test/*_test.rb')
   gem.name          = 'inflections'
