@@ -1,5 +1,9 @@
-3.2.9.20121206 (current version)
-================================
+3.2.12 (Current release)
+========================
+* Support for Turkish (thanks to [Ferhat Elmas](https://github.com/ferhatelmas))
+
+3.2.9.20121206
+==============
 * Support for Kazakh (thanks to [Galymzhan Kozhayev](https://github.com/galymzhan))
 
 3.2.9
