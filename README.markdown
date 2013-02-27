@@ -56,6 +56,7 @@ end
 * Spanish (es)
 * Kazakh (kk)
 * Norwegian Bokmål (nb)
+* Turkish (tr)
 
 If you are fluent in a language not yet included in this gem, _please_ consider creating a list of inflections and submitting a pull request.
 
