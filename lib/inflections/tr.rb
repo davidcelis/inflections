@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 module Inflections
-  ActiveSupport::Inflector.inflections(:tr) do |inflect|
+  ActiveSupport::Inflector.inflections do |inflect|
     inflect.clear
 
     inflect.plural(/([aoıu][^aoıueöiü]{,6})$/, '\1lar')
