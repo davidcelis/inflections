@@ -1,5 +1,9 @@
-3.2.12 (Current release)
-========================
+3.2.12.20130305 (Current release)
+=================================
+* Fix #9 - a bug that was causing all strings to pluralize and singularize in Turkish.
+
+3.2.12
+======
 * Support for Turkish (thanks to [Ferhat Elmas](https://github.com/ferhatelmas))
 
 3.2.9.20121206
