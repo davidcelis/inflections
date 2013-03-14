@@ -54,6 +54,7 @@ end
 * English (en)
 * British English (en-GB)
 * Spanish (es)
+* French (fr)
 * Kazakh (kk)
 * Norwegian Bokmål (nb)
 * Turkish (tr)
