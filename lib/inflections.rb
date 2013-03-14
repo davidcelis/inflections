@@ -1,6 +1,7 @@
 require 'inflections/en'
 require 'inflections/en-GB'
 require 'inflections/es'
+require 'inflections/fr'
 require 'inflections/kk'
 require 'inflections/nb'
 require 'inflections/tr'

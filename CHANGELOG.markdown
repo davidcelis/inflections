@@ -1,5 +1,9 @@
-3.2.12.20130305 (Current release)
+3.2.12.20130314 (Current release)
 =================================
+* Support for French (thanks to [Olivier Laviale](https://github.com/olvlvl) of [ICanBoogie](https://github.com/ICanBoogie/Inflector))
+
+3.2.12.20130305
+===============
 * Fix #9 - a bug that was causing all strings to pluralize and singularize in Turkish.
 
 3.2.12

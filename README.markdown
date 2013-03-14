@@ -54,6 +54,7 @@ If you're using the edge version of ActiveSupport (4.0.0.beta), the multilingual
 * English (en)
 * British English (en-GB)
 * Spanish (es)
+* French (fr)
 * Kazakh (kk)
 * Norwegian Bokmål (nb)
 * Turkish (tr)
