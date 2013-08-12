@@ -24,30 +24,39 @@ $ bundle
 
 ### Ruby on Rails
 
-If you're using Rails, you're done. The default inflections defined in ActiveSupport will be overwritten, and you can continue to define your own special cases in `config/intializers/inflections.rb`. I18n's default locale (set in `config/application.rb`) will determine which inflections are loaded.
+You're done. The default inflections defined in ActiveSupport will be overwritten, and you can continue to define your own special cases in `config/intializers/inflections.rb`. I18n's default locale (set in `config/application.rb`) will determine which inflections are loaded.
 
 ### Otherwise
 
 Wherever you need 'em:
 
 ```ruby
-require 'inflections/en' # Replace 'en' with your preferred locale.
+require 'inflections'
+
+# Or require specific locales
+# require 'inflections/en'
+# require 'inflections/es'
 ```
 
 Define your own additional rules as such:
 
 ```ruby
-ActiveSupport::Inflector.inflections do |inflect|
-  inflect.singular /(phase)s$/i, '\1' 
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.singular /(phase)s$/i, '\1'
   inflect.plural /(shel|kni)fe/, '\1ves'
   inflect.irregular 'foot', 'feet'
-  inflect.uncountable %w( money )
+  inflect.uncountable %w[money fish]
 end
 ```
 
-### Edge
+# Rails < 4.0.0
 
-If you're using the edge version of ActiveSupport (4.0.0.beta), the multilingual Inflector will be supported. You can use each set of inflection rules without needing to require them or worry about conflicts between languages. Just point your Gemfile to this git repository; each locale's set of inflection rules will be kept separately and you can use any of them side-by-side. [Read more about the multilingual Inflector](http://davidcelis.com/blog/2012/07/31/edge-rails-a-multilingual-inflector/).
+If you're not using ActiveSupport 4.0, the multilingual Inflector won't be supported. You'll have to choose which locale you use. [Read more about the multilingual Inflector](http://davidcelis.com/blog/2012/07/31/edge-rails-a-multilingual-inflector/).
+
+```ruby
+# Require the old version and choose your locale
+gem 'inflections', '~> 3.2', require: 'inflections/en'
+```
 
 ## Languages Currently Supported
 
