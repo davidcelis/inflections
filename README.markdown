@@ -22,20 +22,13 @@ $ bundle
 
 ## Usage
 
-### Ruby on Rails
-
-You're done. The default inflections defined in ActiveSupport will be overwritten, and you can continue to define your own special cases in `config/intializers/inflections.rb`. I18n's default locale (set in `config/application.rb`) will determine which inflections are loaded.
-
-### Otherwise
-
-Wherever you need 'em:
+To inflect strings in a different locale:
 
 ```ruby
-require 'inflections'
-
-# Or require specific locales
-# require 'inflections/en'
-# require 'inflections/es'
+'persona'.pluralize(:es)
+# => "personas"
+'madame'.pluralze(:fr)
+# => "mesdames"
 ```
 
 Define your own additional rules as such:
@@ -51,10 +44,9 @@ end
 
 # Rails < 4.0.0
 
-If you're not using ActiveSupport 4.0, the multilingual Inflector won't be supported. You'll have to choose which locale you use. [Read more about the multilingual Inflector](http://davidcelis.com/blog/2012/07/31/edge-rails-a-multilingual-inflector/).
+If you're not using ActiveSupport 4, the [multilingual Inflector](http://davidcelis.com/blog/2012/07/31/edge-rails-a-multilingual-inflector/) won't be supported. You should install inflections 3.2.x and you'll have to choose which locale you use by requiring a specific file:
 
 ```ruby
-# Require the old version and choose your locale
 gem 'inflections', '~> 3.2', require: 'inflections/en'
 ```
 
