@@ -3,7 +3,7 @@
 require 'test_helper'
 require 'inflections/tr'
 
-class TestTurkishInflections < MiniTest::Unit::TestCase
+class TestTurkishInflections < Minitest::Test
   def test_regular_plurals
     assert_equal 'günler', 'gün'.pluralize(:tr)
     assert_equal 'gün', 'günler'.singularize(:tr)
@@ -16,7 +16,7 @@ class TestTurkishInflections < MiniTest::Unit::TestCase
 
     assert_equal 'köpekler', 'köpek'.pluralize(:tr)
     assert_equal 'köpek', 'köpekler'.singularize(:tr)
-    
+
     assert_equal 'testler', 'test'.pluralize(:tr)
     assert_equal 'test', 'testler'.singularize(:tr)
 

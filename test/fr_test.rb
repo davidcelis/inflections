@@ -3,7 +3,7 @@
 require 'test_helper'
 require 'inflections/fr'
 
-class TestFrenchInflections < MiniTest::Unit::TestCase
+class TestFrenchInflections < Minitest::Test
   def test_regular_plurals
     assert_equal 'amis', 'ami'.pluralize(:fr)
     assert_equal 'ami', 'amis'.singularize(:fr)
@@ -57,7 +57,7 @@ class TestFrenchInflections < MiniTest::Unit::TestCase
   def test_exceptions_to_ending_in_ail
     assert_equal 'travaux', 'travail'.pluralize(:fr)
     assert_equal 'travail', 'travaux'.singularize(:fr)
-    
+
     assert_equal 'baux', 'bail'.pluralize(:fr)
     assert_equal 'bail', 'baux'.singularize(:fr)
 

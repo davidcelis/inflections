@@ -3,7 +3,7 @@
 require 'test_helper'
 require 'inflections/nb'
 
-class TestNorwegianBokmalInflections < MiniTest::Unit::TestCase
+class TestNorwegianBokmalInflections < Minitest::Test
   def test_svake_substantiv_er
     assert_equal 'hunder', 'hund'.pluralize(:nb)
     assert_equal 'hund', 'hunder'.singularize(:nb)

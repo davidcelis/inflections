@@ -3,7 +3,7 @@
 require 'test_helper'
 require 'inflections/es'
 
-class TestSpanishInflections < MiniTest::Unit::TestCase
+class TestSpanishInflections < Minitest::Test
   def test_plurales_regulares
     assert_equal 'libros', 'libro'.pluralize(:es)
     assert_equal 'libro', 'libros'.singularize(:es)

@@ -1,7 +1,7 @@
 require 'test_helper'
 require 'inflections/en-GB'
 
-class TestEnglishInflections < MiniTest::Unit::TestCase
+class TestEnglishInflections < Minitest::Test
   def test_regular_plurals
     assert_equal 'dogs', 'dog'.pluralize(:'en-GB')
     assert_equal 'dog', 'dogs'.singularize(:'en-GB')

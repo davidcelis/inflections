@@ -3,7 +3,7 @@
 require 'test_helper'
 require 'inflections/kk'
 
-class TestKazakhInflections < MiniTest::Unit::TestCase
+class TestKazakhInflections < Minitest::Test
   def test_voiceless
     assert_equal 'сабақтар', 'сабақ'.pluralize(:kk)
     assert_equal 'сабақ', 'сабақтар'.singularize(:kk)
