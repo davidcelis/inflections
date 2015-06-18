@@ -1,10 +1,16 @@
 # Inflections [![Build Status](https://secure.travis-ci.org/davidcelis/inflections.png)](http://travis-ci.org/davidcelis/inflections)
 
-This gem's purpose is twofold: to remove the cruft from ActiveSupport's inflections and provide a more sane set of defaults for Ruby/Rails applications in English while also providing default rules for other languages.
+Inflections is a repository containing non-English singularization and pluralization rules for Rails, supporting the multilingual ActiveSupport::Inflector in Rails 4.
 
-At the time of this gem's publication, the English list of inflections in ActiveSupport is a mess. It is riddled with special cases such as a special pluralization rule for "octopus" and "virus", even though they follow a regular rule (as octopi and viri are disputed terms). Similar pluralization rules exist for "ox", "quiz", "mouse", "louse", etc.
+## Languages Currently Supported
 
-Many of the special cases that ActiveSupport defines will not see the light of day in an application. Other rules exist that are actually gramatical exceptions, such as changing "f" to a "v" when encountered at the end of the word (which then requires even more rules to fix special words such as "drive", "safe", "hive", etc.). And, of course, who can forget the special pluralization of "cow" to the archaic term of Scottish origin, "kine" (the plural of "kye")?
+* Spanish (es)
+* French (fr)
+* Kazakh (kk)
+* Norwegian Bokmål (nb)
+* Turkish (tr)
+
+If you are fluent in a language not yet included in this gem, _please_ consider creating a list of inflections and submitting a pull request.
 
 ## Installation
 
@@ -44,23 +50,13 @@ end
 
 # Rails < 4.0.0
 
-If you're not using ActiveSupport 4, the [multilingual Inflector](http://davidcelis.com/blog/2012/07/31/edge-rails-a-multilingual-inflector/) won't be supported. You should install inflections 3.2.x and you'll have to choose which locale you use by requiring a specific file:
+If you're not using ActiveSupport 4, the [multilingual Inflector](http://davidcel.is/posts/edge-rails-a-multilingual-inflector/) won't be supported. You should install inflections 3.2.x and you'll have to choose which locale you use by requiring a specific file:
 
 ```ruby
-gem 'inflections', '~> 3.2', require: 'inflections/en'
+gem 'inflections', '~> 3.2', require: 'inflections/es'
 ```
 
-## Languages Currently Supported
-
-* English (en)
-* British English (en-GB)
-* Spanish (es)
-* French (fr)
-* Kazakh (kk)
-* Norwegian Bokmål (nb)
-* Turkish (tr)
-
-If you are fluent in a language not yet included in this gem, _please_ consider creating a list of inflections and submitting a pull request.
+Note that this will override the default set of English rules that come with Rails. You should do this only if you plan on your constants and code itself not being in English.
 
 ## Contributing
 
