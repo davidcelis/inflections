@@ -8,7 +8,6 @@ module Inflections
           warn "Inflections: no default locale set. Defaulting to English (en)."
         else
           warn "Inflections: no support for #{Rails.configuration.i18n.default_locale}. Defaulting to English (en)."
-          require 'inflections/en'
         end
       end
     end

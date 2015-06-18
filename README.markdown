@@ -1,17 +1,25 @@
 # Inflections [![Build Status](https://secure.travis-ci.org/davidcelis/inflections.png)](http://travis-ci.org/davidcelis/inflections)
 
-This gem's purpose is twofold: to remove the cruft from ActiveSupport's inflections and provide a more sane set of defaults for Ruby/Rails applications in English while also providing default rules for other languages.
+Inflections is a repository containing non-English singularization and pluralization rules for Rails.
 
-At the time of this gem's publication, the English list of inflections in ActiveSupport is a mess. It is riddled with special cases such as a special pluralization rule for "octopus" and "virus", even though they follow a regular rule (as octopi and viri are disputed terms). Similar pluralization rules exist for "ox", "quiz", "mouse", "louse", etc.
+## Languages Currently Supported
 
-Many of the special cases that ActiveSupport defines will not see the light of day in an application. Other rules exist that are actually gramatical exceptions, such as changing "f" to a "v" when encountered at the end of the word (which then requires even more rules to fix special words such as "drive", "safe", "hive", etc.). And, of course, who can forget the special pluralization of "cow" to the archaic term of Scottish origin, "kine" (the plural of "kye")?
+* English (en)
+* British English (en-GB)
+* Spanish (es)
+* French (fr)
+* Kazakh (kk)
+* Norwegian Bokmål (nb)
+* Turkish (tr)
+
+If you are fluent in a language not yet included in this gem, _please_ consider creating a list of inflections and submitting a pull request.
 
 ## Installation
 
 Add the following to your application's Gemfile:
 
 ```ruby
-gem 'inflections'
+gem 'inflections', '~> 3.2'
 ```
 
 And then execute:
@@ -27,15 +35,17 @@ $ bundle
 If you're using Rails, you're done. The default inflections defined in ActiveSupport will be overwritten, and you can continue to define your own special cases in `config/intializers/inflections.rb`. I18n's default locale (set in `config/application.rb`) will determine which inflections are loaded. If you do not wish to use your default locale, you can require a locale manually in your Gemfile:
 
 ```ruby
-gem 'inflections', :require => 'inflections/en'
+gem 'inflections', require: 'inflections/es'
 ```
+
+Note that this will override the default set of English rules that come with Rails. You should do this only if you plan on your constants and code itself not being in English. If you wish for your code itself to remain in English, it's recommended that you do not include this gem.
 
 ### Otherwise
 
 Wherever you need 'em:
 
 ```ruby
-require 'inflections/en' # Replace 'en' with your preferred locale.
+require 'inflections/es' # Replace 'es' with your preferred locale.
 ```
 
 Define your own defaults as such:
@@ -48,18 +58,6 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.uncountable %w( money )
 end
 ```
-
-## Languages Currently Supported
-
-* English (en)
-* British English (en-GB)
-* Spanish (es)
-* French (fr)
-* Kazakh (kk)
-* Norwegian Bokmål (nb)
-* Turkish (tr)
-
-If you are fluent in a language not yet included in this gem, _please_ consider creating a list of inflections and submitting a pull request.
 
 ## Contributing
 
