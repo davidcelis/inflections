@@ -1,8 +1,7 @@
 module Inflections
   MAJOR = 3
-  MINOR = 2
-  PATCH = 12
-  PRE   = 20130314
+  MINOR = 3
+  PATCH = 0
 
-  VERSION = [MAJOR, MINOR, PATCH, PRE].compact.join '.'
+  VERSION = [MAJOR, MINOR, PATCH].compact.join '.'
 end
