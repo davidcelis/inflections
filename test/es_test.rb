@@ -32,4 +32,11 @@ class TestSpanishInflections < Minitest::Test
     assert_equal 'los', 'el'.pluralize(:es)
     assert_equal 'el', 'los'.singularize(:es)
   end
+
+  def test_palabras_terminadas_en_e
+    assert_equal 'pasaje', 'pasajes'.singularize(:es)
+    assert_equal 'fase', 'fases'.singularize(:es)
+    assert_equal 'clase', 'clases'.singularize(:es)
+    assert_equal 'serie', 'series'.singularize(:es)
+  end
 end
