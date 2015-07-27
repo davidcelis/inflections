@@ -16,6 +16,8 @@ module Inflections
 
     inflect.singular(/s$/, '')
     inflect.singular(/es$/, '')
+    inflect.singular(/([sfj]e)s$/, '\1')
+    inflect.singular(/ces$/, 'z')
 
     inflect.irregular('el', 'los')
   end

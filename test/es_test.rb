@@ -32,4 +32,20 @@ class TestSpanishInflections < Minitest::Test
     assert_equal 'los', 'el'.pluralize(:es)
     assert_equal 'el', 'los'.singularize(:es)
   end
+
+  def test_singulares_regulares
+    assert_equal 'casa', 'casas'.singularize(:es)
+    assert_equal 'perro', 'perros'.singularize(:es)
+
+    assert_equal 'árbol', 'árboles'.singularize(:es)
+    assert_equal 'álbum', 'álbumes'.singularize(:es)
+    assert_equal 'mujer', 'mujeres'.singularize(:es)
+  end
+
+  def test_singulares_especiales
+    assert_equal 'mequetrefe', 'mequetrefes'.singularize(:es)
+    assert_equal 'pasaje', 'pasajes'.singularize(:es)
+    assert_equal 'fase', 'fases'.singularize(:es)
+    assert_equal 'pez', 'peces'.singularize(:es)
+  end
 end
