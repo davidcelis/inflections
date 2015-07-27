@@ -18,12 +18,12 @@ class TestSpanishInflections < Minitest::Test
     assert_equal 'ley', 'leyes'.singularize(:es)
   end
 
-  def test_plurales_que_terminar_en_z
+  def test_plurales_que_terminan_en_z
     assert_equal 'meces', 'mez'.pluralize(:es)
     assert_equal 'luces', 'luz'.pluralize(:es)
   end
 
-  def test_plurales_que_terminar_en_n_o_s_con_acentos
+  def test_plurales_que_terminan_en_n_o_s_con_acentos
     assert_equal 'aviones', 'avión'.pluralize(:es)
     assert_equal 'intereses', 'interés'.pluralize(:es)
   end
