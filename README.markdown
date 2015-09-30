@@ -33,7 +33,7 @@ To inflect strings in a different locale:
 ```ruby
 'persona'.pluralize(:es)
 # => "personas"
-'madame'.pluralze(:fr)
+'madame'.pluralize(:fr)
 # => "mesdames"
 ```
 
