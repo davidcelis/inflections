@@ -8,6 +8,8 @@ class TestItalianInflections < Minitest::Test
     assert_equal 'gelati', 'gelato'.pluralize(:it)
     assert_equal 'gelato', 'gelati'.singularize(:it)
 
+    assert_equal 'donna', 'donne'.singularize(:it)
+
     assert_equal 'mari', 'mare'.pluralize(:it)
 
     assert_equal 'oasi', 'oasi'.pluralize(:it)

@@ -10,6 +10,7 @@ module Inflections
     inflect.plural(/go$/i, 'ghi')
 
     inflect.singular(/i$/i, 'o')
+    inflect.singular(/e$/i, 'a')
     inflect.singular(/^.{2,3}$/, '\0')
     inflect.singular(/ghi$/i, 'go')
 
