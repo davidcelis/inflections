@@ -11,6 +11,7 @@ Inflections is a repository containing non-English singularization and pluraliza
 * Brazilian Portugues (pt-BR)
 * Turkish (tr)
 * Italian (it)
+* Swedish (sv)
 
 If you are fluent in a language not yet included in this gem, _please_ consider creating a list of inflections and submitting a pull request.
 
