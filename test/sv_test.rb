@@ -26,6 +26,8 @@ class TestSwedishInflections < Minitest::Test
     assert_equal 'huvuden', 'huvud'.pluralize(:sv)
     assert_equal 'vittnen', 'vittne'.pluralize(:sv)
     assert_equal 'kategorier', 'kategori'.pluralize(:sv)
+    assert_equal 'äpplen', 'äpple'.pluralize(:sv)
+    assert_equal 'suddgummin', 'suddgummi'.pluralize(:sv)
 
     # Time units
     assert_equal 'minuter', 'minut'.pluralize(:sv)
@@ -56,6 +58,9 @@ class TestSwedishInflections < Minitest::Test
     assert_equal 'sko', 'skor'.singularize(:sv)
     assert_equal 'hand', 'händer'.singularize(:sv)
     assert_equal 'ros', 'rosor'.singularize(:sv)
+    assert_equal 'kategori', 'kategorier'.singularize(:sv)
+    assert_equal 'äpple', 'äpplen'.singularize(:sv)
+    assert_equal 'suddgummi', 'suddgummin'.singularize(:sv)
 
     # Time units
     assert_equal 'minut', 'minuter'.singularize(:sv)

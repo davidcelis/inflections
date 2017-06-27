@@ -31,7 +31,7 @@ module Inflections
     inflect.plural(/de$/i, 'der') # fiende, fiender
 
     # -n
-    inflect.plural(/le$/i, 'lem') # muskel, muskler
+    inflect.plural(/le$/i, 'len') # äpple, äpplen
 
     inflect.plural(/ö$/i, 'ön') # frö, frön
     inflect.plural(/ok$/i, 'öcker') # bok, böcker
@@ -44,9 +44,8 @@ module Inflections
     inflect.plural(/ad$/i, 'ader')
     inflect.plural(/ne$/i, 'nen') # vittne, vittnen
     inflect.plural(/and$/i, 'änder') # hand, händer
-
-    # Own hack
     inflect.plural(/i$/i, 'ier') # kategori, kategorier
+    inflect.plural(/mi$/i, 'min')
 
     # --- Singular ---
 
@@ -71,10 +70,9 @@ module Inflections
     inflect.singular(/ader$/i, 'ad')
 
     # -n
-    inflect.singular(/kler$/i, 'kel') # muskel, muskler
-    inflect.singular(/tlar$/i, 'tel') # titel, titlar
-
     inflect.singular(/en$/i, 'e') # vittne, vittnen
+
+    inflect.singular(/tlar$/i, 'tel') # titel, titlar
     inflect.singular(/ön$/i, 'ö') # frö, frön
     inflect.singular(/öcker$/i, 'ok') # bok, böcker
     inflect.singular(/a$/i, 'um') # faktum, fakta
@@ -84,6 +82,8 @@ module Inflections
     inflect.singular(/skor$/i, 'sko') # sko, skor
     inflect.singular(/änder$/i, 'and') # hand, händer
     inflect.singular(/sor$/i, 's') # ros, rosor
+    inflect.singular(/rier$/i, 'ri')
+    inflect.singular(/min$/i, 'mi')
 
     # --- Uncountable ---
 
