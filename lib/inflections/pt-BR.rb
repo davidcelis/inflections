@@ -10,7 +10,7 @@
 #   inflect.uncountable %w( fish sheep )
 # end
 module Inflections
-  ActiveSupport::Inflector.inflections(:pt_br) do |inflect|
+  ActiveSupport::Inflector.inflections(:'pt_BR') do |inflect|
     inflect.clear
 
     inflect.plural(/$/,  's')
