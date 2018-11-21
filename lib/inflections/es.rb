@@ -20,8 +20,8 @@ module Inflections
     # dandis, pantis, ferris. No son admisibles, por tanto, los plurales que conservan la -y del singular
     # etimológico: dandys, pantys, ferrys.
     #
-    inflect.singular /^(.+[bcdfghjklmnpqrstvwxyz]i)s$/i, '\1'
-    inflect.plural /^(.+[bcdfghjklmnpqrstvwxyz]i)$/i, '\1s'
+    inflect.singular(/^(.+[bcdfghjklmnpqrstvwxyz]i)s$/i, '\1')
+    inflect.plural(/^(.+[bcdfghjklmnpqrstvwxyz]i)$/i, '\1s')
 
 
     # Sustantivos y adjetivos terminados en grupo consonántico. Procedentes todos ellos de otras lenguas,
@@ -30,15 +30,15 @@ module Inflections
     # que permanecen invariables en plural, pues la adición de una -s en estos casos daría lugar a una secuencia de difícil
     # articulación en español. También son excepción los anglicismos lord y milord, cuyo plural asentado en español es lores y
     # milores, respectivamente.
-    inflect.singular /^(.+[bdfghjklmnpqrtvwxyz][bcdfghjklmnpqrtvwxyz])s$/i, '\1'
-    inflect.plural /^(.+[bdfghjklmnpqrtvwxyz][bcdfghjklmnpqrtvwxyz])$/i, '\1s'
+    inflect.singular(/^(.+[bdfghjklmnpqrtvwxyz][bcdfghjklmnpqrtvwxyz])s$/i, '\1')
+    inflect.plural(/^(.+[bdfghjklmnpqrtvwxyz][bcdfghjklmnpqrtvwxyz])$/i, '\1s')
 
 
     # Sustantivos y adjetivos terminados en vocal átona o en -e tónica. Forman el plural con -s:
     # casas, estudiantes, taxis, planos, tribus, comités.
     #
-    inflect.singular /^(.+[aeéiou])s$/i, '\1'
-    inflect.plural /^(.+[aeéiou])$/i, '\1s'
+    inflect.singular(/^(.+[aeéiou])s$/i, '\1')
+    inflect.plural(/^(.+[aeéiou])$/i, '\1s')
 
     # Sustantivos y adjetivos terminados en -i o en -u tónicas. Admiten generalmente dos formas de plural,
     # una con -es y otra con -s, aunque en la lengua culta suele preferirse la primera: bisturíes o bisturís,
@@ -51,16 +51,16 @@ module Inflections
     #   gachís, pirulís, popurrís, champús, menús, tutús, vermús. El plural del adverbio sí, cuando funciona
     #   como sustantivo, es síes, a diferencia de lo que ocurre con la nota musical si, cuyo plural es sis
     #
-    inflect.singular /^(.+[íú])es$/i, '\1'
-    inflect.plural /^(.+[íú])$/i, '\1es'
+    inflect.singular(/^(.+[íú])es$/i, '\1')
+    inflect.plural(/^(.+[íú])$/i, '\1es')
 
 
     # Sustantivos y adjetivos terminados en -a o en -o tónicas. Aunque durante algún tiempo vacilaron
     # entre el plural en -s y el plural en -es, en la actualidad forman el plural únicamente con -s:
     # papás, sofás, bajás, burós, rococós, dominós.
     #
-    inflect.singular /^(.+[áó])s$/i, '\1'
-    inflect.plural /^(.+[áó])$/i, '\1s'
+    inflect.singular(/^(.+[áó])s$/i, '\1')
+    inflect.plural(/^(.+[áó])$/i, '\1s')
 
 
     # Sustantivos y adjetivos terminados en -s o en -x. Si son monosílabos o polisílabos agudos,
@@ -74,8 +74,8 @@ module Inflections
     #   elemento es ya un plural: ciempiés, pl. ciempiés (no ciempieses); buscapiés, pl. buscapiés (no buscapieses),
     #   pasapurés, pl. pasapurés (no pasapureses).
     #
-    inflect.singular /^(.+[xs])es$/i, '\1'
-    inflect.plural /^(.+[xs])$/i, '\1es'
+    inflect.singular(/^(.+[xs])es$/i, '\1')
+    inflect.plural(/^(.+[xs])$/i, '\1es')
 
 
     # Sustantivos y adjetivos terminados en consonantes distintas de -l, -r, -n, -d, -z, -j, -s, -x, -ch.
@@ -85,8 +85,8 @@ module Inflections
     # También son excepciones el arabismo imam (→ imán), cuyo plural asentado es imames, y el latinismo
     # álbum (→ álbum), cuyo plural asentado es álbumes.
     #
-    inflect.singular /^(.+[^c][bcfghkmpqtvwy])s$/i, '\1'
-    inflect.plural /^(.+[^c][bcfghkmpqtvwy])$/i, '\1s'
+    inflect.singular(/^(.+[^c][bcfghkmpqtvwy])s$/i, '\1')
+    inflect.plural(/^(.+[^c][bcfghkmpqtvwy])$/i, '\1s')
 
 
     # Sustantivos y adjetivos terminados en -y precedida de vocal. Forman tradicionalmente su plural con -es: rey, pl. reyes;
@@ -107,8 +107,8 @@ module Inflections
     # invariables en plural: (los) crómlech, (los) zarévich, (los) pech, o bien hacen el plural en -es:
     # sándwich, pl. sándwiches; maquech, pl. maqueches.
     #
-    inflect.singular /^(.+ch)es$/i, '\1'
-    inflect.plural /^(.+ch)$/i, '\1es'
+    inflect.singular(/^(.+ch)es$/i, '\1')
+    inflect.plural(/^(.+ch)$/i, '\1es')
 
 
     # Sustantivos y adjetivos terminados en -l, -r, -n, -d, -z, -j. Si no van precedidas de otra consonante (→ j),
@@ -119,10 +119,10 @@ module Inflections
     # pl. (los) polisíndeton; trávelin, pl. (los) trávelin; cáterin, pl. (los) cáterin.
     # Excepcionalmente, el plural de hipérbaton es hipérbatos.
     #
-    inflect.singular /^(.+[aáeéiíoóuú])ces$/i, '\1z'
-    inflect.plural /^(.+[aáeéiíoóuú])z$/i, '\1ces'
-    inflect.singular /^(.+[aáeéiíoóuú][lrndj])es$/i, '\1'
-    inflect.plural /^(.+[aáeéiíoóuú][lrndj])$/i, '\1es'
+    inflect.singular(/^(.+[aáeéiíoóuú])ces$/i, '\1z')
+    inflect.plural(/^(.+[aáeéiíoóuú])z$/i, '\1ces')
+    inflect.singular(/^(.+[aáeéiíoóuú][lrndj])es$/i, '\1')
+    inflect.plural(/^(.+[aáeéiíoóuú][lrndj])$/i, '\1es')
 
     #
     #
