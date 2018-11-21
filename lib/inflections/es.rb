@@ -99,8 +99,8 @@ module Inflections
     #   las palabras coy, pl. coyes o cois; estay, pl. estayes o estáis; noray, pl. norayes o noráis; guirigay,
     #   pl. guirigayes o guirigáis, con preferencia hoy por las formas con -s.
     #
-    inflect.singular /^(.+[aáeéiíoóuú]y)es$/i, '\1'
-    inflect.plural /^(.+[aáeéiíoóuú]y)$/i, '\1es'
+    inflect.singular(/^(.+[aáeéiíoóuú]y)es$/i, '\1')
+    inflect.plural(/^(.+[aáeéiíoóuú]y)$/i, '\1es')
 
 
     # Sustantivos y adjetivos terminados en -ch. Procedentes todos ellos de otras lenguas, o bien se mantienen
