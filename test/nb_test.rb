@@ -36,4 +36,9 @@ class TestNorwegianBokmalInflections < Minitest::Test
     assert_equal 'konti', 'konto'.pluralize(:nb)
     assert_equal 'konto', 'konti'.singularize(:nb)
   end
+  
+  def test_diverse
+    assert_equal 'menn', 'mann'.pluralize(:nb)
+    assert_equal 'dører', 'dør'.pluralize(:nb)
+  end
 end
